@@ -1,0 +1,30 @@
+{
+  "family": "widget",
+  "name": "formRequest",
+  "version": "1.0.0",
+  "description": "ajax表单提交 - 获取表单所有含name属性文本域的内容",
+  "homepage": "http://git.oschina.net/tanshenghu/myweb/tree/widget/1.0.0/formRequest",
+  "author": "谭生虎",
+  "maintainers": [
+    "谭生虎 <tanshenghu@163.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://git.oschina.net/tanshenghu/myweb/tree/widget/1.0.0/formRequest.git"
+  },
+  "bugs": {
+    "url": "http://git.oschina.net/tanshenghu/myweb/tree/widget/1.0.0/formRequest/issues"
+  },
+  "keywords": [],
+  "licenses": "tsh_worker",
+  "spm": {
+    "output": [
+      "formRequest.js"
+    ],
+    "alias": {
+      "$" : "$"
+    },
+    "devAlias": {},
+    "engines": {}
+  }
+}

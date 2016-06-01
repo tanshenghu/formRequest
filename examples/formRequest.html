@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="Keywords" content="获取表单中所有字段信息并组合成json数据格式提交给后端">
+    <meta name="Description" content="获取表单中所有字段信息并组合成json数据格式提交给后端">
+    <meta name="Author" content="TanShenghu">
+    <title>formRequest 表单数据获取 组件</title>
+    <style>
+    *{margin:0;padding:0;}
+    form{width:90%;margin:10px auto;}
+    th{text-align:right}
+    </style>
+    <script src="http://www.tanshenghu.com/static/js/sea.js"></script>
+    <script>
+    seajs.config({
+      paths: {
+        'tanshenghu': 'http://www.tanshenghu.com/static/js',
+        'widget': 'http://www.tanshenghu.com/widget'
+      },    
+      alias: {
+        '$': 'tanshenghu/$',
+        'formRequest': 'widget/formRequest/1.0.0/formRequest'
+      }
+    });
+    </script>
+</head>
+<body>
+    <form>
+    <table border="1" width="100%">
+        <tr>
+            <th>姓名：</th>
+            <td><input type="text" name="Model.base.username" value="tanshenghu"><input type="hidden" name="username" value="tsh"></td>
+            <th>性别：</th>
+            <td><label><input type="radio" name="Model.base.sex" value="男" checked="checked"><span>男</span></label> <label><input type="radio" name="Model.base.sex" value="女"><span>女</span></label></td>
+        </tr>
+        <tr>
+            <th>电话：</th>
+            <td><input type="text" name="Model.base.tel" value="13588428548"></td>
+            <th>QQ：</th>
+            <td><input type="text" name="Model.base.QQ" value="511568692"></td>
+        </tr>
+        <tr>
+            <th>爱好：</th>
+            <td colspan="3"><label><input type="checkbox" name="Model.base.hobby" value="健身"><span>健身</span></label> <label><input type="checkbox" name="Model.base.hobby" value="编程"><span>编程</span></label> <label><input type="checkbox" name="Model.base.hobby" value="钓鱼"><span>钓鱼</span></label></td>
+        </tr>
+        <tr>
+            <th>下拉框：</th><td><select name="Model.select"><option>选项1</option><option>选项2</option><option>选项3</option></select></td>
+            <th>富文本域：</th><td><textarea name="Model.content">textarea富文本域</textarea></td>
+        </tr>
+    </table>
+    <hr>
+    <table border="1" width="100%">
+        <thead><tr><th>公司名称</th><th>地址</th></tr></thead>
+        <tbody data-request="list" name="Model.datalist">
+            <tr class="tsh-lineData"><td><input type="text" name="company" value="阿里巴巴"></td><td><input type="text" name="adrs" value="杭州余杭"></td></tr>
+            <tr class="tsh-lineData"><td><input type="text" name="company" value="网易"></td><td><input type="text" name="adrs" value="杭州滨江"></td></tr>
+            <tr class="tsh-lineData"><td><input type="text" name="company" value="华为"></td><td><input type="text" name="adrs" value="杭州滨江"></td></tr>
+            <tr class="tsh-lineData"><td><input type="text" name="company" value="腾讯"></td><td><input type="text" name="adrs" value="深圳"></td></tr>
+            <tr class="tsh-lineData"><td><input type="text" name="company" value="百度"></td><td><input type="text" name="adrs" value="北京"></td></tr>
+        </tbody>
+    </table>
+    <p align="center"><input type="button" value="提 交"></p>
+    </form>
+    <script>
+    seajs.use(['$','formRequest'], function( $, FormRequest ){
+        
+        $(':button').on('click', function(){
+            
+            var params = FormRequest({
+                form: 'form',
+                // selector: '.cls,[name="name"]', // 特选某些元素节点
+                // way: true, // 针对于selector参数，特选元素做选择，还是反选
+                // Encode: escape, // 中文编码
+                formatHtml: true,
+                nested: true,
+                trim: true
+            })
+            
+            alert( JSON.stringify( params ) );
+            
+        })
+        
+    });
+    </script>
+</body>
+</html>
