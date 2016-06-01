@@ -14,7 +14,7 @@
 
 ---
 
-[demo](http://www.tanshenghu.com/widget/formRequest/examples/formRequest.html)
+[demo](http://htmlpreview.github.io/?https://github.com/tanshenghu/formRequest/blob/master/examples/formRequest.html)
 
 ## html
 
